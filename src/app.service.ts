@@ -1,8 +1,16 @@
-import { Injectable } from '@nestjs/common';
+import { WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
+import { Server } from 'socket.io';
 
-@Injectable()
+@WebSocketGateway({
+  cors: {
+    origin: '*',
+  },
+})
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  @WebSocketServer()
+  server: Server;
+
+  pauseNetflix() {
+    this.server.emit('pauseNetflix');
   }
 }

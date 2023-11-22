@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-
+// THESE ARE ALL BROKE
 describe('AppController', () => {
   let appController: AppController;
 
